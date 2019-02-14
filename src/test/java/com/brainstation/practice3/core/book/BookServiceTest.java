@@ -27,10 +27,12 @@ public class BookServiceTest {
         Book book_NULL = new Book("", "");
         String CUSTOMER = "bailin";
         HashMap<String, List<Book>> bookList = new HashMap<>();
-        bookList.put(CUSTOMER, new ArrayList<>());
+        ArrayList<Book> bookArrayList = new ArrayList<>();
+        bookArrayList.add(book);
+        bookList.put(CUSTOMER, bookArrayList);
         BookServiceImpl bookService = new BookServiceImpl(new BookDAO(bookList));
         Book bookResult = bookService.getBook(book.getId(), CUSTOMER);
-        Assert.notNull(bookResult, "");
+        Assert.notNull(bookResult, "Not null test getBook");
         bookResult = bookService.getBook(book_NULL.getId(), CUSTOMER);
         Assert.isNull(bookResult, "");
     }

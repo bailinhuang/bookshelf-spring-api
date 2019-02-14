@@ -2,7 +2,11 @@ package com.brainstation.practice3.core.book.service;
 
 import com.brainstation.practice3.model.Book;
 
+import java.util.List;
+
 public interface BookService {
+
+    public List<Book> getAllBooks(String customer);
 
     public Book getBook(String id, String customer);
 
